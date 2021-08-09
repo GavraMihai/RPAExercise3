@@ -1,0 +1,247 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="AddExtraDetailsSheet" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_URLArray" Type="InArgument(s:String[])" />
+    <x:Property Name="in_ExcelPath" Type="InArgument(x:String)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1133,2782</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>AddExtraDetailsSheet_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="66">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>UiPath.DataTableUtilities</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="66">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="This process creates a new DT for storing extra details for events, it merges it with the Event Details DT (since we need to sort by Event Date), goes to every Event URL in the array where it extracts the needed informations and adds them to the ExtraDetails DT. After all this, it converts the Event Date column to DateTime format and sorts the ExtraDetails DT by this column. Finally it saves the ExtraDetails sheet to the given path excel file." DisplayName="AddExtraDetailsSheet" sap:VirtualizedContainerService.HintSize="530,2717" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="sd:DataTable" Name="extraDetails" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="488,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;AddExtraDetailsSheet process has started...&quot;]" />
+    <ui:BuildDataTable DataTable="[extraDetails]" DisplayName="Build Extra Details Data Table" sap:VirtualizedContainerService.HintSize="488,59" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;StartDateTime&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;EndDateTime&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;FullLocation&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Always" DisplayName="Use Browser Edge: Japan robotics Events | Eventbrite" sap:VirtualizedContainerService.HintSize="488,2091" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="Simulate" OpenMode="Never" Version="V1">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="454,1875" sap2010:WorkflowViewState.IdRef="Sequence_3">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each URL" sap:VirtualizedContainerService.HintSize="412,1781" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[in_URLArray]">
+              <ui:ForEach.Body>
+                <ActivityAction x:TypeArguments="x:String">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="x:String" Name="URL" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,1646" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                    <Sequence.Variables>
+                      <Variable x:TypeArguments="x:String" Name="startDateTime" />
+                      <Variable x:TypeArguments="x:String" Name="endDateTime" />
+                      <Variable x:TypeArguments="x:String" Name="location1" />
+                      <Variable x:TypeArguments="x:String" Name="location2" />
+                      <Variable x:TypeArguments="x:String" Name="fullLocation" />
+                      <Variable x:TypeArguments="x:String" Name="location3" />
+                      <Variable x:TypeArguments="x:String" Name="location4" />
+                    </Sequence.Variables>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <uix:NGoToUrl DisplayName="Go To Event URL" sap:VirtualizedContainerService.HintSize="334,81" sap2010:WorkflowViewState.IdRef="NGoToUrl_1" Url="[URL]" />
+                    <uix:NGetText DisplayName="Get Text 'StartDateTime'" sap:VirtualizedContainerService.HintSize="334,166" sap2010:WorkflowViewState.IdRef="NGetText_1">
+                      <uix:NGetText.Target>
+                        <uix:TargetAnchorable BrowserURL="https://www.eventbrite.com/e/the-6th-intl-conference-on-advanced-functional-materials-icafm-2021-tickets-131825789485?aff=ebdssbdestsearch" DesignTimeRectangle="1178, 657, 304, 19" ElementType="Text" FriendlyName="'Wed, Aug'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;main&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;section&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;time&amp;gt;p' isleaf='1' tag='P' /&gt;" FuzzySelectorArgument="&lt;webctrl css-selector='body&amp;gt;main&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;section&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;time&amp;gt;p' isleaf='1' tag='P' type='' /&gt;" InformativeScreenshot="11da0d9b97ca4c4946e94e34fc7e732d.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='The 6th Intl. Conference on Advanced Functional Materials (ICAFM 2021) Tickets, Wed, Aug 25, 2021 at 8:00 AM | Eventbrite' /&gt;" SearchSteps="FuzzySelector">
+                          <uix:TargetAnchorable.Anchors>
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                              <uix:Target DesignTimeRectangle="1178, 626, 304, 21" FriendlyName="'Date and time'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;main&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;section&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;h3' tag='H3' /&gt;" FuzzySelectorArgument="&lt;webctrl css-selector='body&amp;gt;main&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;section&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;h3' tag='H3' type='' aaname='Date and time' check:text='Date and time' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAATQAAAAZCAYAAAC/xNLDAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAQWSURBVHhe7ZsxSyNBGIav9kcE8gOuioVgCkmlcBzbHAgRgghqo1ZpNAhq4YFwQghXbCHE4tQiEAiHxEJsIlikCOYK9YqwHCmCAUOKS7B4b3Z3drO7Wb2NyOEt7wMDzmRmZ3ZhH775Zn0HQggJCRQaISQ0UGiEkNBAoRFCQgOFRggJDRQaISQ0UGiEkNDgFtpVDpGxuKtMTq0i87WK1qPsEyJaJ2lE5kpoyXoQOuXPiE2pqP+WDYSQN4OP0FZx/KOLzoNe2rgr57H4Po7YQgma7BYWKDRCwoWP0NIo/pJ1i0YJi2MJ7F30ZUMwqrsiytu9lrW3x/NCu0ZWRKjZK1klhLx5ggkNfVTWhZzWL9GTLUGg0Agh/5KAQgO0b6uIfCgMtp3dWxyvLSMRtXJtG1ArbfljG8U5s90uDrF1Knmkp6bN9vfLRo6uI38bponK7gYUse3V+8fGl7Fz0nCJ1RDTbA7qurWeaaTWLzxb5Daq+2nH7yWcq08I7ZcekZrzWcUWm/GMcqjKqvXMMvbcCSRSR6j/uEQ29RExfby4x53vTTlA0m2g6BqTw+nNaBEwIcRNYKEZ0rBfZBGxbSYQWztDS+aSOhc5KGMbOL036zp+EVpPzDETTeO41jUb7oUYFxJQsrdm3YN2uIyIkkdVXrf3s4SV6CeoNbOuY64tib1y08j9tWoF0SeOzHc5h6CeTSJizNs2+mhXeaPPyBGar9ASWDm4Rcsx92CuNuoHaSG2LZw/yDFS+MrmpXx+fbTKX6BERR/H8yOEjMbLI7QhhgUwLLQuztdElOXdhlbEvFEVdVl9HlMGiydWNGhFaO5Di+q2c+5bqBPuMTrawfwrCc1Rt7bn24MWsRrsOa9Vy2Nm6Dk3UZyNY6XgXiMhJDgvzqH1bkrYmUtiUt9SOcrzQvPZitrFX6S4r0Jdmre3tlYZEppHTO65/eXkN27AS4Xmd9+eaxlj3PdjF6/sCSGBCSY0ecqZKVtbOPGCCsEsHjrzQp4oRPBUhDZ70JD1v9HG6UIcMyLaGeTYzEhmNKH9ywgtgNCMCO0LKvz0g5BXxUdoQb5DM4WWyl6jo7+Uv608kVsA9b2EEEYBd/q1pAsHObQ2eo+i/tDE+WYSEcVvO2sKTc/Vafr4xz40Pdck5hlNaDKHNrGFosyh2bmu54RmSLth9NfXavAaQnPk0LSHvnFf5npG/zSGEDLAR2jiZXSUp/5ToFc7wsq4EJboY548HiEj/nZFNI0zpGWfyf3BC+465Yx+RGqtgLqdMPfQuMCOYp2IJpHeL0EdOULTcZ9yKktHOH3qlFOiFbbs/qplrFcRmsB1ymmeEmfLnpNQQshIuIVGCCH/MRQaISQ0UGiEkNBAoRFCQgOFRggJDRQaISQ0UGiEkJAA/AEOUG+OiEZw6QAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image" />
+                            </scg:List>
+                          </uix:TargetAnchorable.Anchors>
+                        </uix:TargetAnchorable>
+                      </uix:NGetText.Target>
+                      <uix:NGetText.Text>
+                        <OutArgument x:TypeArguments="x:String">[startDateTime]</OutArgument>
+                      </uix:NGetText.Text>
+                    </uix:NGetText>
+                    <uix:NGetText DisplayName="Get Text 'EndDateTime'" sap:VirtualizedContainerService.HintSize="334,166" sap2010:WorkflowViewState.IdRef="NGetText_2">
+                      <uix:NGetText.Target>
+                        <uix:TargetAnchorable BrowserURL="https://www.eventbrite.com/e/the-6th-intl-conference-on-advanced-functional-materials-icafm-2021-tickets-131825789485?aff=ebdssbdestsearch" DesignTimeRectangle="1178, 676, 304, 19" ElementType="Text" FriendlyName="'Fri, Aug'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;main&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;section&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;time&amp;gt;p' idx='2' isleaf='1' tag='P' /&gt;" FuzzySelectorArgument="&lt;webctrl css-selector='body&amp;gt;main&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;section&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;time&amp;gt;p' type='' isleaf='1' tag='P' /&gt;" InformativeScreenshot="e5ea0373a66b7e4cb35c2e13164db82b.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='The 6th Intl. Conference on Advanced Functional Materials (ICAFM 2021) Tickets, Wed, Aug 25, 2021 at 8:00 AM | Eventbrite' /&gt;" SearchSteps="FuzzySelector">
+                          <uix:TargetAnchorable.Anchors>
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                              <uix:Target DesignTimeRectangle="1178, 626, 304, 21" FriendlyName="'Date and time'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;main&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;section&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;h3' tag='H3' /&gt;" FuzzySelectorArgument="&lt;webctrl css-selector='body&amp;gt;main&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;section&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;h3' tag='H3' type='' aaname='Date and time' check:text='Date and time' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAATQAAAAZCAYAAAC/xNLDAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAQWSURBVHhe7ZsxSyNBGIav9kcE8gOuioVgCkmlcBzbHAgRgghqo1ZpNAhq4YFwQghXbCHE4tQiEAiHxEJsIlikCOYK9YqwHCmCAUOKS7B4b3Z3drO7Wb2NyOEt7wMDzmRmZ3ZhH775Zn0HQggJCRQaISQ0UGiEkNBAoRFCQgOFRggJDRQaISQ0UGiEkNDgFtpVDpGxuKtMTq0i87WK1qPsEyJaJ2lE5kpoyXoQOuXPiE2pqP+WDYSQN4OP0FZx/KOLzoNe2rgr57H4Po7YQgma7BYWKDRCwoWP0NIo/pJ1i0YJi2MJ7F30ZUMwqrsiytu9lrW3x/NCu0ZWRKjZK1klhLx5ggkNfVTWhZzWL9GTLUGg0Agh/5KAQgO0b6uIfCgMtp3dWxyvLSMRtXJtG1ArbfljG8U5s90uDrF1Knmkp6bN9vfLRo6uI38bponK7gYUse3V+8fGl7Fz0nCJ1RDTbA7qurWeaaTWLzxb5Daq+2nH7yWcq08I7ZcekZrzWcUWm/GMcqjKqvXMMvbcCSRSR6j/uEQ29RExfby4x53vTTlA0m2g6BqTw+nNaBEwIcRNYKEZ0rBfZBGxbSYQWztDS+aSOhc5KGMbOL036zp+EVpPzDETTeO41jUb7oUYFxJQsrdm3YN2uIyIkkdVXrf3s4SV6CeoNbOuY64tib1y08j9tWoF0SeOzHc5h6CeTSJizNs2+mhXeaPPyBGar9ASWDm4Rcsx92CuNuoHaSG2LZw/yDFS+MrmpXx+fbTKX6BERR/H8yOEjMbLI7QhhgUwLLQuztdElOXdhlbEvFEVdVl9HlMGiydWNGhFaO5Di+q2c+5bqBPuMTrawfwrCc1Rt7bn24MWsRrsOa9Vy2Nm6Dk3UZyNY6XgXiMhJDgvzqH1bkrYmUtiUt9SOcrzQvPZitrFX6S4r0Jdmre3tlYZEppHTO65/eXkN27AS4Xmd9+eaxlj3PdjF6/sCSGBCSY0ecqZKVtbOPGCCsEsHjrzQp4oRPBUhDZ70JD1v9HG6UIcMyLaGeTYzEhmNKH9ywgtgNCMCO0LKvz0g5BXxUdoQb5DM4WWyl6jo7+Uv608kVsA9b2EEEYBd/q1pAsHObQ2eo+i/tDE+WYSEcVvO2sKTc/Vafr4xz40Pdck5hlNaDKHNrGFosyh2bmu54RmSLth9NfXavAaQnPk0LSHvnFf5npG/zSGEDLAR2jiZXSUp/5ToFc7wsq4EJboY548HiEj/nZFNI0zpGWfyf3BC+465Yx+RGqtgLqdMPfQuMCOYp2IJpHeL0EdOULTcZ9yKktHOH3qlFOiFbbs/qplrFcRmsB1ymmeEmfLnpNQQshIuIVGCCH/MRQaISQ0UGiEkNBAoRFCQgOFRggJDRQaISQ0UGiEkJAA/AEOUG+OiEZw6QAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image" />
+                            </scg:List>
+                          </uix:TargetAnchorable.Anchors>
+                        </uix:TargetAnchorable>
+                      </uix:NGetText.Target>
+                      <uix:NGetText.Text>
+                        <OutArgument x:TypeArguments="x:String">[endDateTime]</OutArgument>
+                      </uix:NGetText.Text>
+                    </uix:NGetText>
+                    <uix:NGetText DisplayName="Get Text 'Location1'" sap:VirtualizedContainerService.HintSize="334,166" sap2010:WorkflowViewState.IdRef="NGetText_3">
+                      <uix:NGetText.Target>
+                        <uix:TargetAnchorable BrowserURL="https://www.eventbrite.com/e/2021-3rd-asia-digital-image-processing-conference-adip-2021-tickets-160480526575?aff=ebdssbdestsearch" DesignTimeRectangle="1178, 756, 304, 19" ElementType="Text" FriendlyName="'京都市'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;main&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;section&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;p' idx='3' isleaf='1' tag='P' /&gt;" FuzzySelectorArgument="&lt;webctrl css-selector='body&amp;gt;main&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;section&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;p' type='' isleaf='1' tag='P' /&gt;" InformativeScreenshot="9f6853acdbc384f80344f46b2956f12f.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='2021 3rd Asia Digital Image Processing Conference (ADIP 2021) Tickets, Fri, Dec 17, 2021 at 8:00 AM | Eventbrite' /&gt;" SearchSteps="FuzzySelector">
+                          <uix:TargetAnchorable.Anchors>
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                              <uix:Target DesignTimeRectangle="1178, 725, 304, 21" FriendlyName="'Location'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;main&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;section&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;h3' idx='2' tag='H3' /&gt;" FuzzySelectorArgument="&lt;webctrl css-selector='body&amp;gt;main&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;section&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;h3' type='' tag='H3' aaname='Location' check:text='Location' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAATQAAAAZCAYAAAC/xNLDAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKlSURBVHhe7dmxaxphHMbxzv4Rgn9AJzsU6iA3pUvJkKFgwKGgLm2mW0IopBkMCBZEOtxmJx0EQTKk0HCLAYcbSuySLiLBQRRyOHghw9P37l71zmg5oZT0zfOBA89XvXf68vPuGYiIFMGgEZEyGDQiUgaDRkTKYNCISBkMGhEpg0EjImWEg9atIh7T0bqR54+IfX6KZNpAbybfICJawaARkTIeYdCuUImlUOnKUyKiiBg0IlLGdkEbWzDyGbwSwYnHdrCbr8EayzXJ7tSgp3fEegrJFwWcNPpw5JrL+dHE0d4bJNf9xk0bOe/95bEIm7e3Kix56gpeK/48A/2zBVuuuUYNHfG3VRiHBWgJ/3rZQxMDuU5EaoketJmYnF6mkC1aGNxOYd8OcfExg3i6hp78iGOWRagyKJ0PxfoUA9NANqHh6Gzqf2BmoeSeN4d+5O6n6BTFb+S/BUK0YUJbCZojzl/HCqiY/rXs/iVK6RR2K9fyEzJogf2MREzfi7At9kNESokcNPvsGPFEeELC7BInMU3GZ4qLAzGVFa+8pTnrk5iMDszQ5BTyYPKKErT113K+l0N79Ce0dmgi8/az8j0iUkPkoHlx2G9jJM99fnxyjYl4PUFrf/56kzv8apSRm/9NXBzbBm3DtVb2v27PVpFBI1LVv53QLEP8JdVR73tLvk4wVK6/PKExaERPxpqgfUD9p3uPbHl497si30Nb3tcadWvhe2he0AowuhPvN53xNervtIdBS4jp62vfv/a9fDsUtC3uoTFoRE/GmqC5fwGDR2Bii/CUc2T+6SnnHXpfdPnEUYO2V0bLOBWvg0EDBs3jxVNJY76wEjRXpKecDBrRkxEOGhHRf4xBIyJlMGhEpAwGjYiUwaARkTIYNCJSBoNGRIoAfgPE72uQl5wUoQAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image" />
+                            </scg:List>
+                          </uix:TargetAnchorable.Anchors>
+                        </uix:TargetAnchorable>
+                      </uix:NGetText.Target>
+                      <uix:NGetText.Text>
+                        <OutArgument x:TypeArguments="x:String">[location1]</OutArgument>
+                      </uix:NGetText.Text>
+                    </uix:NGetText>
+                    <uix:NGetText DisplayName="Get Text 'Location2'" sap:VirtualizedContainerService.HintSize="334,166" sap2010:WorkflowViewState.IdRef="NGetText_4">
+                      <uix:NGetText.Target>
+                        <uix:TargetAnchorable BrowserURL="https://www.eventbrite.com/e/2021-3rd-asia-digital-image-processing-conference-adip-2021-tickets-160480526575?aff=ebdssbdestsearch" DesignTimeRectangle="1178, 775, 304, 19" ElementType="Text" FriendlyName="'Kyoto'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;main&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;section&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;p' idx='4' isleaf='1' tag='P' /&gt;" FuzzySelectorArgument="&lt;webctrl css-selector='body&amp;gt;main&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;section&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;p' type='' isleaf='1' tag='P' /&gt;" InformativeScreenshot="c6b9b1d5e4824e61ee5665e3c0aebfe4.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='2021 3rd Asia Digital Image Processing Conference (ADIP 2021) Tickets, Fri, Dec 17, 2021 at 8:00 AM | Eventbrite' /&gt;" SearchSteps="FuzzySelector">
+                          <uix:TargetAnchorable.Anchors>
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                              <uix:Target DesignTimeRectangle="1178, 725, 304, 21" FriendlyName="'Location'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;main&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;section&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;h3' idx='2' tag='H3' /&gt;" FuzzySelectorArgument="&lt;webctrl css-selector='body&amp;gt;main&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;section&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;h3' type='' tag='H3' aaname='Location' check:text='Location' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAATQAAAAZCAYAAAC/xNLDAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKlSURBVHhe7dmxaxphHMbxzv4Rgn9AJzsU6iA3pUvJkKFgwKGgLm2mW0IopBkMCBZEOtxmJx0EQTKk0HCLAYcbSuySLiLBQRRyOHghw9P37l71zmg5oZT0zfOBA89XvXf68vPuGYiIFMGgEZEyGDQiUgaDRkTKYNCISBkMGhEpg0EjImWEg9atIh7T0bqR54+IfX6KZNpAbybfICJawaARkTIeYdCuUImlUOnKUyKiiBg0IlLGdkEbWzDyGbwSwYnHdrCbr8EayzXJ7tSgp3fEegrJFwWcNPpw5JrL+dHE0d4bJNf9xk0bOe/95bEIm7e3Kix56gpeK/48A/2zBVuuuUYNHfG3VRiHBWgJ/3rZQxMDuU5EaoketJmYnF6mkC1aGNxOYd8OcfExg3i6hp78iGOWRagyKJ0PxfoUA9NANqHh6Gzqf2BmoeSeN4d+5O6n6BTFb+S/BUK0YUJbCZojzl/HCqiY/rXs/iVK6RR2K9fyEzJogf2MREzfi7At9kNESokcNPvsGPFEeELC7BInMU3GZ4qLAzGVFa+8pTnrk5iMDszQ5BTyYPKKErT113K+l0N79Ce0dmgi8/az8j0iUkPkoHlx2G9jJM99fnxyjYl4PUFrf/56kzv8apSRm/9NXBzbBm3DtVb2v27PVpFBI1LVv53QLEP8JdVR73tLvk4wVK6/PKExaERPxpqgfUD9p3uPbHl497si30Nb3tcadWvhe2he0AowuhPvN53xNervtIdBS4jp62vfv/a9fDsUtC3uoTFoRE/GmqC5fwGDR2Bii/CUc2T+6SnnHXpfdPnEUYO2V0bLOBWvg0EDBs3jxVNJY76wEjRXpKecDBrRkxEOGhHRf4xBIyJlMGhEpAwGjYiUwaARkTIYNCJSBoNGRIoAfgPE72uQl5wUoQAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image" />
+                            </scg:List>
+                          </uix:TargetAnchorable.Anchors>
+                        </uix:TargetAnchorable>
+                      </uix:NGetText.Target>
+                      <uix:NGetText.Text>
+                        <OutArgument x:TypeArguments="x:String">[location2]</OutArgument>
+                      </uix:NGetText.Text>
+                    </uix:NGetText>
+                    <uix:NGetText DisplayName="Get Text 'Location3'" sap:VirtualizedContainerService.HintSize="334,166" sap2010:WorkflowViewState.IdRef="NGetText_8">
+                      <uix:NGetText.Target>
+                        <uix:TargetAnchorable BrowserURL="https://www.eventbrite.com/e/the-6th-international-conference-on-data-processing-and-robotics-tickets-140627694219?aff=ebdssbdestsearch&amp;keep_tld=1" DesignTimeRectangle="1178, 852, 304, 19" ElementType="Text" FriendlyName="'Japan, 札幌'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;main&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;section&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;p' idx='5' isleaf='1' parentid='event-page' tag='P' /&gt;" FuzzySelectorArgument="&lt;webctrl css-selector='body&amp;gt;main&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;section&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;p' type='' isleaf='1' parentid='event-page' tag='P' /&gt;" InformativeScreenshot="a6f612e038d6b8536be38c06597f5ff6.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='The 6th International Conference on Data Processing and Robotics Tickets, Thu 6/01/2022 at 9:00 AM | Eventbrite' /&gt;" SearchSteps="FuzzySelector">
+                          <uix:TargetAnchorable.Anchors>
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                              <uix:Target DesignTimeRectangle="1178, 871, 304, 19" ElementType="Text" FriendlyName="'Japan'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;main&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;section&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;p' idx='6' isleaf='1' parentid='event-page' tag='P' /&gt;" FuzzySelectorArgument="&lt;webctrl css-selector='body&amp;gt;main&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;section&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;p' type='' isleaf='1' parentid='event-page' tag='P' aaname='Japan ' check:text='Japan' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAATQAAAAXCAYAAACFzrOzAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJRSURBVHhe7dqxS5tBHIfx/lVCpkxmCmQoESKFhECEYgebQiCDS4eCkCzvlsUKDQGL0PJCBGmhODgUMihCMaBkEEuEYKDRIRD49t7coa9tSrQNrX15PuDwy110e7h7Xx/pjx3Im0vJ23cjAPwjMwgaADwMBA1AZBA0AJFB0ABEBkEDEBkEDUBkTAga/4YB4P9E0ABEBkEDEBl3CNqlOn5VhWRaMfN5PLmsyseuWwvY/a8aTVXyds/8wkttHV+6dePqRP7aspLxlFlPK1mo6tNXtxY4b6o491zehvk7CbunsLars5FbB4A7mB609roex6va++bm0/cmPiX55252+2P5dR32htLoQu3NkuLmOy0zBtobi4qbQA1coM62SoqtNNWzowtaShmvpeBXqN+St5BSeefCrgPAHfzGlbMrfyW87va33BgYHel1KqXKnivaj8YBq+nQjXYOR1LqbC4p5h24CQCmmx40c13c8VaVSaSVyS4pa36Cq+NPQbsVQBu9om+vpsPjD/JKOc0ncuPvZ5+YE9uUoPV8c4ojaADuYWrQxmEpm+vh9fOsU21lJwQtfEJT+IRm41beDl0fO2+VJWgAZuwmaKOhBv2uff41t6qdvv14fPXL19VxQRt8rilz60Rmg/brZ2g2gIXGyXh3sN7ycooRNAAzdhO0/drkt5hXR2q8CK6IJlrxRRXfNNV4OuGE9m735i1nvio/9JZz+KWu4vVb0pIa23U9I2gAZmzClfO+Jj1DA4C/j6ABiAyCBiAyZhA0AHgYCBqAyCBoACJC+g78O2eDUEGBlgAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image" />
+                            </scg:List>
+                          </uix:TargetAnchorable.Anchors>
+                        </uix:TargetAnchorable>
+                      </uix:NGetText.Target>
+                      <uix:NGetText.Text>
+                        <OutArgument x:TypeArguments="x:String">[location3]</OutArgument>
+                      </uix:NGetText.Text>
+                    </uix:NGetText>
+                    <uix:NGetText DisplayName="Get Text 'location4'" sap:VirtualizedContainerService.HintSize="334,166" sap2010:WorkflowViewState.IdRef="NGetText_7">
+                      <uix:NGetText.Target>
+                        <uix:TargetAnchorable BrowserURL="https://www.eventbrite.com/e/the-6th-intl-conf-on-cloud-computing-and-internet-of-things-cciot-2021-tickets-160468528689?aff=ebdssbdestsearch" DesignTimeRectangle="1178, 849, 304, 19" ElementType="Text" FriendlyName="'Japan'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;main&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;section&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;p' idx='4' isleaf='1' tag='P' /&gt;" FuzzySelectorArgument="&lt;webctrl css-selector='body&amp;gt;main&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;section&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;p' type='' isleaf='1' tag='P' /&gt;" InformativeScreenshot="c9ea9697f9704ef5336af261c44832b7.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='The 6th Intl. Conf. on Cloud Computing and Internet of Things (CCIOT 2021) Tickets, Wed, Sep 22, 2021 at 8:00 PM | Eventbrite' /&gt;" SearchSteps="FuzzySelector">
+                          <uix:TargetAnchorable.Anchors>
+                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                              <uix:Target DesignTimeRectangle="1178, 868, 65, 19" ElementType="Text" FriendlyName="'View Map'" FullSelectorArgument="&lt;webctrl aaname='View Map' css-selector='body&amp;gt;main&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;section&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;p&amp;gt;a' parentid='event-page' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='View Map' css-selector='body&amp;gt;main&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;section&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;p&amp;gt;a' parentid='event-page' tag='A' type='' check:text='View Map' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEUAAAAXCAYAAABdy4LVAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAANfSURBVFhH7ZbPSxtBFMf7V+WUW049NSfBg4IEBOklUNBeFgRBMAchCtWLuUguCoWQS6AgEhBED7YBIQhF6Gbzc6MxKmoS+PbNzNskOztiadWD3S8s5M1uZmc+7/ve7Dv8s35gLfIBa985fAN6BihvTyEUg0IoBoVQDAqhGBRCMWgI5eGohuh0DaUBD4ypnLURWXfxQL/dbw5in5tw1K2XU7OJ5KSNRP6KB/xy8hVEJh3kmjzwjBo55a6N1LSNdKnPA546yMzaSB3dy+i1oURm6yjriRpcyjW9PBT0UdqyEd264JhVriNODjq+4/i1JKE4SFqjhHiSrl6uYuHloZAYwKiE+ihv+0G5BQcRqwmXYwyucbztYGJGZM7G+0UC2Ga3dVuwJivYHdqqg92kjYX9G46D8w8lodRQ2K8istxCl4eBW+yt2LCKLaR1KO02MksVxITD6JpYIpfd8j2SSHpktY7cOj8zU4GV78i2MC4/FLblMDMcZ8qjkvJDoU1lK4guNnHeE8/04BZriH/0LK82kCzwln41MEUlGl3xNqlKM1iyJIZSkmVdReGSxy9bWJDOvdCgqHcldjoqHNzieNMPXEKhJGVKN3gY9NA9ayBJ69Gd6IdCOv9Km/zSVvSEc7Sa9kO5wEagD6mNbpyqqFscZVr8d2qngTRt6kCUo4Rkbu5DKOwmr+GKBhvfFoR0KAaVaj5XSyibbY6E1NzeIeIpAAVOAwmZCdVj4lkmz9KhpNmq+mUV2beyhKrY66pMZs7ucbCuQMoEmEpHaAiFJNYkkyOc65WjDqUP96QOa95GjJ6ZStI1R2vRoWjvC7QDUhAKrrBLE6cOXcooLeAXD7OCTgk+45eCkdpvURkoVwj3xLMt5KiJGktHaBwKblBYJtCrVWqwXulpUAYUk2s3Tns8QA358Cmn+D83PBmg8MZF7c83AkevH4rqKXGa1JE9pY/uzzptZry5KghRasRR7+Viw2L+x0pHyAeF5hANlxw4atIalDsXKbqfOmCH9jrILRqc8jc9RUo0M3qB6cMpYDft9InNOcicXPNNliyhsZKiXAuXPFo6QhoU+R01M/5pECwfh5p8wlvHJzq58ianNLE3dvqkCk+dPm9cpp5iUgjFoBCKQf8VlD9VCMWgEEpAwG9inKtQAcxzjwAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image" />
+                            </scg:List>
+                          </uix:TargetAnchorable.Anchors>
+                        </uix:TargetAnchorable>
+                      </uix:NGetText.Target>
+                      <uix:NGetText.Text>
+                        <OutArgument x:TypeArguments="x:String">[location4]</OutArgument>
+                      </uix:NGetText.Text>
+                    </uix:NGetText>
+                    <Assign DisplayName="Merge full location" sap:VirtualizedContainerService.HintSize="334,61" sap2010:WorkflowViewState.IdRef="Assign_1">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[fullLocation]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">[location1 + ", " + location2 + ", " +location3 + ", " + location4]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <ui:AddDataRow DataRow="{x:Null}" sap2010:Annotation.AnnotationText="this activity also converts the StartDateTime to DataTime format (yyyy-MM-dd hh:mm:ss)" ArrayRow="[{convert.ToDateTime(string.Join(&quot;,&quot;,StartDateTime.Replace(&quot;–&quot;,&quot;&quot;).Split(&quot;,&quot;c).Skip(1))).Tostring(&quot;yyyy-MM-dd hh:mm:ss&quot;), endDateTime, fullLocation}]" DataTable="[extraDetails]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="334,94" sap2010:WorkflowViewState.IdRef="AddDataRow_1">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </ui:AddDataRow>
+                  </Sequence>
+                </ActivityAction>
+              </ui:ForEach.Body>
+            </ui:ForEach>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="-8, -8, 1936, 1056" BrowserType="Edge" IconBase64="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" InformativeScreenshot="eed7aec3018d70abbdae506790f99234.png" Selector="&lt;html app='msedge.exe' url='https://www.eventbrite.com*' /&gt;" Url="https://www.eventbrite.com*" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+    <ui:SortDataTable ColumnIndex="{x:Null}" DataColumn="{x:Null}" ColumnName="StartDateTime" DataTable="[extraDetails]" DisplayName="Sort ExtraDetails DT by StartDateTime" sap:VirtualizedContainerService.HintSize="488,22" sap2010:WorkflowViewState.IdRef="SortDataTable_1" Order="Ascending" OutputDataTable="[extraDetails]" SortOrder="Ascending" />
+    <ui:WriteRange AddHeaders="True" DataTable="[extraDetails]" DisplayName="Write ExtraDetails sheet for Event Details DT Range" sap:VirtualizedContainerService.HintSize="488,115" sap2010:WorkflowViewState.IdRef="WriteRange_2" SheetName="ExtraDetails" StartingCell="A1" WorkbookPath="[in_ExcelPath]" />
+  </Sequence>
+</Activity>

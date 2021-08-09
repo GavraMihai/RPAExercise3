@@ -1,0 +1,140 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="initBrowser" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1133,1533" sap2010:WorkflowViewState.IdRef="initBrowser_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.ExtractData</x:String>
+      <x:String>UiPath.DataTableUtilities</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="this process goes to eventbrite webpage where it selects the required search filters" DisplayName="initBrowser" sap:VirtualizedContainerService.HintSize="476,1468" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;initBrowser process has started...&quot;]" />
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Edge: Eventbrite - Discover Great Events or Create Your Own &amp; Sell Tickets" sap:VirtualizedContainerService.HintSize="434,1214" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="Simulate" OpenMode="Always" Version="V1" WindowResize="Maximize">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,998" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into 'City'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="334,226" sap2010:WorkflowViewState.IdRef="NTypeInto_1" Text="japan">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="https://www.eventbrite.com/" DesignTimeRectangle="581, 803, 382, 61" ElementType="InputBox" FriendlyName="'Cluj-Napoca'" FullSelectorArgument="&lt;webctrl tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='text' aaname='autocomplete' /&gt;" ImageBase64="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" InformativeScreenshot="158c47b1111ba699062a3bcdfa3456f3.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Eventbrite - Discover Great Events or Create Your Own &amp;amp; Sell Tickets' /&gt;" SearchSteps="Selector, FuzzySelector" />
+              </uix:NTypeInto.Target>
+            </uix:NTypeInto>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into 'search' + ENTER" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="334,226" sap2010:WorkflowViewState.IdRef="NTypeInto_2" InteractionMode="HardwareEvents" Text="Robotics[k(enter)]">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="https://www.eventbrite.com/" DesignTimeRectangle="242, 91, 410, 44" ElementType="InputBox" FriendlyName="'INPUT eventPickerglobal…'" FullSelectorArgument="&lt;webctrl tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='search' aaname='autocomplete' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAZ4AAAAwCAYAAAAhHRwlAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAASgSURBVHhe7dtdTyJJGIbh/f+/RCJBVwJpOmBkO+DIwDA9GMh2ejDE3kWMyw5BIpmDeac+GgRE9ABrJ+79JpcJVHVX4UE9VtH+JhRFURTlsAgeiqIoyl39UMEzf/guAAC4oIvgAQA4Q/AAAJwieAAAThE8AACnCB4AgFMEDwDAKYIHAOAUwQMAcIrgAQA4RfAAAJwieAAAThE8AACnCB4AgFMEDwDAKYIHAOAUwQMAcIrgAQA4tZ/gub+VsFyWbCYvmQMlW5bK51uZbev7xpKaL5mjpiRb2gAA/729BE/vtKACx5ezTiI3o0TaJU+9LkilO9/a/y39ysFj5nYQSLilDQD+L/YSPLUjtcspdmS8eG8USl7tfI5rwyd93xrBAwC/tr0ET1zVOxwVNKWmtKNbmdxv9Jkmcl70JKuP4ZRsriq1Pye27S6Ws5PCsi2T8cSr9ZchZoOkKn7e7qpqg+8yG0XmGtNf3++kLuHfdndl+9clMLsuez+/dfc4l4Vn53Qn5yfqvZNPcpP2nbSqqo8nwdfdY88HTTlWc6xUA8mlx465Utfcx4aOfc8o9cxYYdlfziFXDGWw+bsDgHdmL8Ezf5hJ0mmKv1yQC2oRbUo00gvyVMKSev/og/Su7+RmNJTemV6Eq9IeP73P+PKD5NKA0e8tFuycH0q7HclgPLQ7rGxVGtFQkigUL6te58OVBb4g3sVAkutYgt9V22Fdemvj7J6TDZrFHKbSKqp7mCCyY2dVQPRH+rpEGkV1n9yF9PV9TfDY9vha3bNq51LpqsD69q9E5nVVWvraf2Yy79ZV6PgS9NXvaRqJf5iXfGNLSALAO7Kn4FkxnUi/rf7i1wFkFmu1oJowesq/VP3v/5JWaeXBhEXbF3s/EySrwXH9ySzuzy3QdsfTlEH6evZZh8jm8dZLc+qZ9twfyfLY0IyXjv30Ol/Or9V16Y6ndpWOo+7jqfa1z7I6l7Gahw5NtaMLLiKJhyqMFm0A8E7tJXjMIu71Vp5im0nb0wuyXmTtIp89jdeuWbhplM3CHfTTRffK7hrWFuvV72xeGTzL/l+C9cXe2D2n+cNcemW7kwnP9fzS3dkLYy+DJ92tzR9sgD0bPNr0TuJOKEFRt+XluO7+ezEAcGkvwdPWR1EHnvgfB5KMhhJ/THc8xa5MFsdah2U5j+zxVEsfT6WLeVLXC64nlc7QHHm1dd/NxXrtYYFXHLW9GDy752T6fL2wn0HJluM0VNOxc3W51Ed0i6O8taO2l4JHhawaMxlO0tA9lYba6cy+xXK28jke5woA78tegmc+VYGx+n88mYLky11Jpot2tbCXHr9EX3u4YDyQmnlwQF/niXda3b3jUTa/4M8VLuTSfJ/02uBRds3JSENGP1QQP16nxw4K6YML+rotDxc8FzzzQUeKOlz0tX5kjhkbGw84NK7SewHAO7Wf4AEA4JUIHgCAUwQPAMApggcA4BTBAwBwiuABADhF8AAAnCJ4AABOETwAAKcIHgCAUwQPAMApggcA4BTBAwBwiuABADhF8AAAnCJ4AABOETwAAKdM8JifFEVRFOWifhA8FEVRlNMS+QkS79rrRTpx1AAAAABJRU5ErkJggg==" InformativeScreenshot="3d11e6cde67abaff97d8ba3804dbd3aa.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Eventbrite - Discover Great Events or Create Your Own &amp;amp; Sell Tickets' /&gt;" SearchSteps="Selector, FuzzySelector" />
+              </uix:NTypeInto.Target>
+            </uix:NTypeInto>
+            <uix:NClick ClickType="Single" DisplayName="Click 'Format'" sap:VirtualizedContainerService.HintSize="334,166" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://www.eventbrite.com/d/japan/robotics/" DesignTimeRectangle="71, 672, 257, 57" ElementType="Button" FriendlyName="'Format'" FullSelectorArgument="&lt;webctrl aaname='Format' parentid='root' tag='BUTTON' type='button' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Format' parentid='root' tag='BUTTON' type='button' check:text='Format' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAQUAAAA9CAYAAACkyHzlAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAPESURBVHhe7dr7T05xHMBxf5WNMZYx5n4bFbLMyiVmbFHEkEsxjUUmsyFiis2kYrNcZm6zVSyXlAhdyD388uHzte/p+eSxlZ2lp94/vFbnnO85PT3beT/n+60h3zp/CAB4RAGAQRQAGEQBgEEUABhEAYBBFAAYRAGAQRQAGEQBgEEUABhEAYBBFAAYRAGAQRQAGEQBgEEUABhEAYBBFAAYRAGAQRQAGEQBgEEUABhEAYARWhRa3rRLctIaGTZ06h82ZOTK+45PUc8D0L+EHoVJExZK3u7DUpB/PHCutFI+ffwa9TxgoLp86Ya0t3VEPdafhR4Fpd9HGxMLBsrvgf9Lg6BPyfMTVsZcGIhCN0QBYdAQbMraE5Nh6PMoPG98JVu37JNxcYnuDZsXv+L39OLDl2DMrZv33bHsX+N0KjJqxGw5W1Lu1iV0fWLa5EVyrqRClqaud+Nmz0yVi2VV0tjQLOlrtsnI4TNk4viFUnT0rHz53Blct6H+paxflxP8bP2q2/qa9PijugZ3bT3m6bbu99cAeiMyDLU1j6OO6W/6ZKFxb94RN+bZ0xcSP2e5u2lXrdzs9ifOTXNjDhYUBTewj4LSmzs5abWUX6wKoqD79Ybenp0vmWt3uuvp9qzpKe647tftMaPnyr07Ne6aWuq0pVluzePUifNy49pdFw29ftqyLGltfSfNL1rkQP4xN8avjRwuLHb7/e8J9JYPw9i4hJgIQ58sNF6qvO7GFB4qdm9O6Zly6fz6/fd5r9tkSUqm+UT2UVicnG5uSB8FvdmvVd12+zQkO7bvd+OPHS0Nrlt24YrbV3K6LDi/Ox2rr3XCuAVSU/3I7evpEw/QU11RiB+cUfjbzeRv6CmTkqXuYb05pk8M+qZpDHTbR8E/YXiR04fIR3qdWkSer7pfQwNQXV0nGek7gulDJH8uUUCYfBDmJawYvNOH/hoFv16g6w8V5VelqfGVe525OQfNuUQBYXALjRu7gsBC419upmjTB53L64JhtOlDmFHw2zpd8D+74+1HtzAZeS5RQBj8nyRjLQiqT6PQ24XGMKPwoPaJW+/QqYMuJurTQlbmLvdaIs/1odD9uojJQiP+Ff+81MNP2N78STLMKOjTgS5O+gjpNObUyfOSu7Pgj3Pv3K4OxunX+qdNwTFgoAstCgAGBqIAwCAKAAyiAMAgCgAMogDAIAoADKIAwCAKAAyiAMAgCgAMogDAIAoADKIAwCAKAAyiAMAgCgAMogDAIAoADKIAwCAKAAyiAMAgCgAMogDAIAoAIvyQn5OyI7jVk0kIAAAAAElFTkSuQmCC" InformativeScreenshot="c5be97863271a0f95f10397fa4ef8ec3.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Japan Robotics Events | Eventbrite' /&gt;" SearchSteps="FuzzySelector, Image">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="86, 689, 57, 22" ElementType="Text" FriendlyName="'Format'" FullSelectorArgument="&lt;webctrl aaname='Format' parentid='root' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Format' parentid='root' tag='DIV' type='' check:text='Format' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAD0AAAAaCAYAAAAEy1RnAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKMSURBVFhH7ZXvS1NhFMf7q4KiKAokybJfkmKkLMIftSISVs72ojJ/rECK2UQl0CyNNgVpTnsRyyLSIpgVk1wzzcoftfLXyjdHv0fOw706coP1Yt374svdc55zzj2f557nbNPv2BIZTSa0UWRCG0UmtFGkg578NkOWgjLasjl7nS6VO+lndE4XnK6KC52VWUh1N5rJ7bqr1OXto7nZRV1wuiouNITf2r100kYcJnSi0J9Gv9DVK7coY1c+3/djeWdW2//XgvJ5+eIN71Wu+OGq7NiWQ50eP88FzIcD+05Ql6eXSosr2C/ncDH1+AI0GpkgW9k12r71EO3dU0htLZ20MB9TeSPhz1RxsVa9G0+sURP2h0MRzo09EdawS46EB9nNujvs83FknPKOnuaizp29zPb8XCv7NLjbVIECDaF4S8F58vcEFDTsKLiq0kX2CzWcD+sjB4t4H3asd+/MpdeDQ5xzZjpK1lIHz5yOe930vP8VHwryW085aGrqB02MT9JtVyv7yGxqbmpnu3AmPMge9z1jn6bGdi7Y+9BPscU/q3Ffp6mkyK47UYE+abHpXijQgOkPDLANB1VdVc/+rS1eldf36AnbPA98Kn6t4ItaMzOO01BwmG0bdWxS7S0F78+yUOh9WLeHL44CAYu1QEuHiLTtrW05tL42HlqbA4DBYIjKbdWqvbWS2P8KWu4r7n+v/ymNrdxj1Omsbfh30FC89sZdwkCK196phJY12lneHf0+y4NPG5ty6GQHWSqh3739wPMGrY1hha/tsF/nWrSxchCwY0gmNMj+Bg0l85eVSmh8XQw/OWRcs4773eSsca+LHRwIKj88wyNjak8HbRSZ0EaRCW0UmdDG0BItAw8DiF9vNJozAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NClick ClickType="Single" DisplayName="Click 'Conference'" sap:VirtualizedContainerService.HintSize="334,166" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="https://www.eventbrite.com/d/japan/robotics/" DesignTimeRectangle="71, 385, 257, 49" ElementType="Button" FriendlyName="'Conference'" FullSelectorArgument="&lt;webctrl aaname='Conference' parentid='root' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Conference' parentid='root' tag='BUTTON' type='button' check:text='Conference' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAQUAAAA1CAYAAABIm/6IAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAOdSURBVHhe7dq/SxthGMDx/lWBTJkyBRSEAwkoB8ElQ1BKFKEOLoEgRBzEwUAhiyJEaBEqoYggVBGUQhwaEAKioqhIJVDp8vR97y4xTzyt9geX4Tt8ILn38p5Lvt5z+ub+x08BgDaiAEAhCgAUogBAIQoAFKIAQCEKABSiAEAhCgAUogBAIQoAFKIAQCEKABSiAEAhCgAUogBAIQoAFKIAQCEKABSiAEAhCgAUogBAiS4KrVs5XJmVTMqReGxQ4klXpkqb0rgJOfcPnNfmJJM0++Y+ynnIOoBwEUXBBKHkSmJiReonLe/Y3VlDNor22EdptsI+8xpNWR1Jy+JB2BqA50QTheOqZGLvZOOi53jrQOYTaVmu9xx/NbNPLC/rJ2FrAJ4TSRSuP82+6Lb+7mtFphx/vEik8rL85bKzdl7NS3xyTuYzaUnY9XRBak27dirrOTM22JHECq6j98pKsdqQu2Cvw9KgjE4XJGvHjdKBd6z5yYwfwWiTdN51XdsGZ0yKc7MybM+POZJ9f9TZ6/7mSCpvXUnaa5vAZQqbD3c+rVOpFbKSSvifG35blt2zYA3oE5FEwftC/y4KF1syk8jL6jd/vLg/2TTv3c5dhLeHsyS7V/77RiUr8cJO8OXsuVOwezkLnXPvW2a8yDlS3PH3tlGI5ypSb6/XyzKcqz58ma/2ZH4gK6vH9r3d25HxtWawtiXFxJj5Oe3apdSmzVqlIdf2syYCG5ODklnxz62XXRkPXlvXOwsy5JrrBO+BftC3dwreOdNbct11zH55s2un3msvCsFvdc/+UteeOgreXklXRkfGlJkP/l523/Gq/9qql83dR0qfay3u24j0jib+ncn8vnltAjETm5VaOy7KkSwPOJJK9+5blsPvYecD0eizZwr+F8c+IPznUejZq1tYFIbKR+qcB38ThX/xvAT4v6KJQvdfH86Cvz5cNWW76JqRoCx1e+sdjA+V+q3/mbDx4YVR6Iwi3u2/ETI+dEfBGx8GusaNR+PDE1Fojw/tEcFcZ33CUePD0NyeP1qY94wP6EcRRcFoXcru+8f/p9CZ643fPmh8aRSMu68rMuM+/aBRRcFofl6Q8ScfND4VBePq4NkHjdulPA8a0deiiwKAvkQUAChEAYBCFAAoRAGAQhQAKEQBgEIUAChEAYBCFAAoRAGAQhQAKEQBgEIUAChEAYBCFAAoRAGAQhQAKEQBgEIUAChEAYBCFAB0+Sm/AIis2E4eGOCkAAAAAElFTkSuQmCC" InformativeScreenshot="2834737c43e110899a5385cc39f0177e.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Japan Robotics Events | Eventbrite' /&gt;" SearchSteps="Selector, FuzzySelector, Image">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target DesignTimeRectangle="98, 400, 69, 19" ElementType="Text" FriendlyName="'Conference'" FullSelectorArgument="&lt;webctrl aaname='Conference' parentid='root' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Conference' parentid='root' tag='SPAN' type='' check:text='Conference' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEkAAAAXCAYAAABH92JbAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALfSURBVFhH7ZbBa+JAFMb3rxI85eRJqCAERGgJiJccxFJsEerBiyCC4qH0YKDgRSkobBFaZCmFwrYISiEeKhQColLRUlYCK718O5PEmFitU7qHHubwg5l5L2/Ml/ne+GP+9w2cj+EiMcBFYoCLxAAXiQEuEgNcJAbcIumv6FTSiPhFeD0BeH0SjvJX6L04cr7AqJlDxEfqxi4wWhP/rjhEIgLlJQj7Fah93VibDXtoZOnaBTTd/eDn0VDdDeOkvS72vVmK9FRDxHOMxrM7Ya63URDCKKkr65+G1PEkUO+vi31vbJGml2kmG8weyjgSTTsK/gRKv8d2bFRLwHuYQyEShkDj4QyaGo0NUI8Rm1ELU6x93LVkZGs9zKxanXwAe8kMZGrPfNtY0y6JXa1W4BOPHXvTDxBFNpdGiOZ7RMhnXbvW/KWL8oEEH92bfPBI5mrpDH2AZkaGXzCfCx0ouBtaMQtbJOMFt4n0fI2UkED10bTjvH9F5pJ9yowa4inuJua8V5bhzdxaP3blJNFaYtHOnevEjjER2VuzNhXJGytDXcRVBaFYbflyk3sUdmRUn+ic1hYRP9es2DWyQpT8Thobo5kksXIPU/osEaVxGECkYuaqioS4NaZMb4sISmQfa0751EkycpLXmDrW6MvI5wNjbIhkfXWD1qmjplskoxa5GPZ2oy5SP81atG68Zo4pqkJOp9+dSzlpUVFXrWye3EKLjIlgKU8azYXYLroo7Yjwh1frKuj8WeYx9CSzEG24/12klVpO1okUVLqunCVfEWl7v12K5LzdhtbtNtFwQ243r6hApUfVsltZfTWfWWc3RpFs6xp2Iayxm1Mkw247Dnu+s9sGkRZ2W1iK7FPfF112C+buTSuS+Yd2M9DHuDt7/z/J7guErY2bVSTC7KGClLS5cbtEImi/iohvbNybRCJM2h827pt8gq1xczbDRWKAi8QAF4kBLhIDXCQGuEhbecM/9GRY5zBVYSEAAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+            </uix:NClick>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="-8, -8, 1936, 1056" BrowserType="Edge" IconBase64="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" InformativeScreenshot="e5088c17592f8c35b0bfa40ac5997551.png" Selector="&lt;html app='msedge.exe' title='Eventbrite*' /&gt;" Url="https://www.eventbrite.com/" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>
