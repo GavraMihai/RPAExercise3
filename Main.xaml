@@ -90,7 +90,11 @@
       <Variable x:TypeArguments="s:String[]" Name="urlArray" />
       <Variable x:TypeArguments="sd:DataTable" Name="extraDetails" />
       <Variable x:TypeArguments="sd:DataTable" Name="extractDataTable" />
-      <Variable x:TypeArguments="x:String" Default="C:\Users\Mihai Paul\Desktop\Events.xlsx" Name="excelPath" />
+      <Variable x:TypeArguments="x:String" Name="excelPath">
+        <Variable.Default>
+          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="&quot;C:\Users\&quot;+Environment.UserName+&quot;\Desktop\Events.xlsx&quot;" />
+        </Variable.Default>
+      </Variable>
       <Variable x:TypeArguments="x:String" Default="paulmihaigavra@yahoo.com" Name="personalMailAddress" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
@@ -106,22 +110,14 @@
     </ui:InvokeWorkflowFile>
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke ExtractTableData workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="processes\ExtractTableData.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <OutArgument x:TypeArguments="s:String[]" x:Key="out_URLArray">
-          <mva:VisualBasicReference x:TypeArguments="s:String[]" ExpressionText="urlArray" />
-        </OutArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_ExcelPath">
-          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="excelPath" />
-        </InArgument>
+        <OutArgument x:TypeArguments="s:String[]" x:Key="out_URLArray">[urlArray]</OutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_ExcelPath">[excelPath]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke AddExtraDetailsSheet workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="processes\AddExtraDetailsSheet.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="s:String[]" x:Key="in_URLArray">
-          <mva:VisualBasicValue x:TypeArguments="s:String[]" ExpressionText="urlArray" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_ExcelPath">
-          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="excelPath" />
-        </InArgument>
+        <InArgument x:TypeArguments="s:String[]" x:Key="in_URLArray">[urlArray]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_ExcelPath">[excelPath]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <ui:SendOutlookMail Account="{x:Null}" Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" ReplyTo="{x:Null}" TimeoutMS="{x:Null}" Body="Here are the requested event details for Eventbrite webpage" DisplayName="Send Outlook Mail Message" sap:VirtualizedContainerService.HintSize="334,145" sap2010:WorkflowViewState.IdRef="SendOutlookMail_1" Importance="Normal" IsBodyHtml="False" IsDraft="False" Sensitivity="Normal" Subject="Eventbrite japan robotics excel" To="[personalMailAddress]">
